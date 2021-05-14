@@ -28,6 +28,7 @@ import {
   testNetworkAndListComponents,
   queryDirectory,
   createAndDeleteFile,
+  userRequestJWTTest,
   uiSearchTest,
   uiGlobalSearchTest,
   updateAndReadFile,
@@ -126,6 +127,14 @@ const testConfig: { [key: string]: TestGroup } = {
       'Press CMD + O and search "for meaning"',
     ),
   ]),
+  user: new TestGroup('User Aptitude', [
+    new LoopTest(
+      'User Aptitude - Request JWT',
+      userRequestJWTTest,
+      10000,
+      'No action required',
+    ),
+  ]),
   vault: new TestGroup('Vault Aptitude', [
     new LoopTest(
       'Vault Aptitude - Write / Read from vault',
@@ -169,7 +178,7 @@ const testConfig: { [key: string]: TestGroup } = {
       'Whisper Aptitude - Initial Value for Select and Radio',
       initialValueSelectAndRadioWhispers,
       10000,
-      `No action required`, 
+      `No action required`,
     )
   ]),
   window: new TestGroup('Window Aptitude', [
